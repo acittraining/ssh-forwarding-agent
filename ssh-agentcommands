@@ -1,0 +1,25 @@
+========================================== SSH Agent Forwarding ===================================================
+
+==> Run the following command to start the ssh-agent in the background. The ssh-agent stores your SSH keys in memory.
+eval $(ssh-agent)
+
+==> Run the following command to verify that the keys are added to the ssh-agent:
+ssh-add -l 
+
+==>  Run the following command to add the SSH key to the ssh-agent:
+ssh-add -K EC2Tutorial.pem 
+
+==> Run the following command to verify that the keys are added to the ssh-agent:
+ssh-add -l 
+
+==> Connect to the private EC2 instance
+
+ssh -A  ec2-user@ [ip address of public instance] 
+
+==> check if the ssh agent forwarded the private key to the pub instance 
+
+ssh-add -l 
+
+==> Connect to the private instance from the public instance 
+
+ssh -A ec2-user@[private ipv4 of the private instance] 
