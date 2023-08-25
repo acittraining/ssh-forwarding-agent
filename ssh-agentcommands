@@ -23,7 +23,18 @@ ssh-add -l
 
 ssh -A ec2-user@[private ipv4 of the private instance] 
 
+                OR
+# Start the SSH-Agent: 
+ssh-agent -s
 
+# Add your private key that allows you to access your infrastructure 
+ssh-add -k ~/.ssh/cloud-infra-key.pem
+
+# list the ssh-keys currently available in the ssh-agent
+ssh-add -l
+
+# additionally, you can remove a key from the ssh-agent using the following command
+ssh-add -d  ~/.ssh/cloud-infra-key.pem
 
 ========================= Reference ===============================================================
 
