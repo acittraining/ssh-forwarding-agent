@@ -12,8 +12,7 @@ ssh-add -K EC2Tutorial.pem
 ==> Run the following command to verify that the keys are added to the ssh-agent:
 ssh-add -l 
 
-==> Connect to the private EC2 instance
-
+==>Run the following command to connect to the bastion host. 
 ssh -A  ec2-user@ [ip address of public instance] 
 
 ==> check if the ssh agent forwarded the private key to the pub instance 
@@ -23,3 +22,9 @@ ssh-add -l
 ==> Connect to the private instance from the public instance 
 
 ssh -A ec2-user@[private ipv4 of the private instance] 
+
+
+
+========================= Reference ===============================================================
+
+https://repost.aws/knowledge-center/ec2-linux-private-subnet-bastion-host
